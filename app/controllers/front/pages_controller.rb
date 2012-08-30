@@ -2,7 +2,7 @@ class Front::PagesController < Front::BaseController
   
   def show
     path_array = request.path.split('/')
-    path_array.shift(1)
+    path_array.shift(2)
     path = path_array.join('/')
     @text = StaticText.route_enabled.find_by_path(path) || not_found
 

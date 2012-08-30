@@ -15,27 +15,33 @@ BaseSite::Application.routes.draw do
   end
 
   scope :module => 'front' do
-    root :to => 'base#index'
+    scope ':locale', locale: /#{I18n.available_locales.join('|')}/ do
 
-    match 'signup' => 'users#new'
-    match 'signup/complete' => 'users#signup_complete', :as => 'signup_complete'
+      root :to => 'base#index'
 
-    resources :sessions, :only => [:create]
-    match 'login' => "sessions#new"
-    match 'logout' => "sessions#destroy"
-    
-    match 'activate(/:activation_code)' => 'users#activate', :as => :activate_account
-    match 'send_activation(/:user_id)' => 'users#send_activation', :as => :send_activation
-    
-    match 'forgot_password' => 'users#forgot_password', :as => :forgot_password, :via => :get
-    match 'forgot_password' => 'users#forgot_password_lookup_email', :as => :forgot_password, :via => :post
+      match 'signup' => 'users#new'
+      match 'signup/complete' => 'users#signup_complete', :as => 'signup_complete'
 
-    put 'reset_password/:reset_password_code' => 'users#reset_password_submit', :as => :reset_password, :via => :put
-    get 'reset_password/:reset_password_code' => 'users#reset_password', :as => :reset_password, :via => :get
+      resources :sessions, :only => [:create]
+      match 'login' => "sessions#new"
+      match 'logout' => "sessions#destroy"
+      
+      match 'activate(/:activation_code)' => 'users#activate', :as => :activate_account
+      match 'send_activation(/:user_id)' => 'users#send_activation', :as => :send_activation
+      
+      match 'forgot_password' => 'users#forgot_password', :as => :forgot_password, :via => :get
+      match 'forgot_password' => 'users#forgot_password_lookup_email', :as => :forgot_password, :via => :post
 
-    resources :users
+      put 'reset_password/:reset_password_code' => 'users#reset_password_submit', :as => :reset_password, :via => :put
+      get 'reset_password/:reset_password_code' => 'users#reset_password', :as => :reset_password, :via => :get
 
-    match '*path' => 'pages#show', :as => 'page'
+      resources :users
+
+      match '*path' => 'pages#show', :as => 'page'
+
+    end
+    match '*path', to: redirect("/#{I18n.default_locale}/%{path}")
+    match '', to: redirect("/#{I18n.default_locale}")
   end
 
 end

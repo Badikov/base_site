@@ -1,6 +1,7 @@
 class Front::BaseController < ApplicationController
   
   before_filter :is_site_enabled?
+  before_filter :set_locale
 
   layout 'front/layouts/application'  
   
@@ -19,5 +20,13 @@ class Front::BaseController < ApplicationController
       render :file => 'public/maintenance.html', :layout => nil
       return false
     end
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] if params[:locale].present? 
+  end
+  
+  def default_url_options(options = {})
+    {locale: I18n.locale}
   end
 end
