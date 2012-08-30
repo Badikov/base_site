@@ -1,0 +1,4 @@
+.control-group.bottom
+  = hidden_field_tag 'after_save_redirect', 'default', :id => 'after_save_redirect'
+  = f.submit t(:save), :class => 'btn btn-large btn-primary', :id => 'save'
+  = f.button t(:save_and_new), :class => 'btn btn-large', :id => 'save-and-new'

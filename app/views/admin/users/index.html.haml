@@ -1,0 +1,30 @@
+.row-fluid
+  .span12
+    %table.table.table-striped
+      %thead
+        %tr
+          %th= sortable('id', 'ID')
+          %th= sortable('login', User.human_attribute_name('login'))
+          %th= sortable('email', User.human_attribute_name('email'))
+          %th= sortable('active', User.human_attribute_name('active'))
+          %th= sortable('banned', User.human_attribute_name('banned'))
+          %th= sortable('created_at', User.human_attribute_name('created_at'))
+          %th= sortable('updated_at', User.human_attribute_name('updated_at'))  
+          %th
+      %tbody
+        - @items.each do |item|
+          %tr
+            %td.id= link_to item.id, [:edit, :admin, item]
+            %td= link_to item.login, [:edit, :admin, item]
+            %td= mail_to item.email
+            %td= link_to t("t#{item.active?}"), [:edit, :admin, item]
+            %td= link_to t("t#{item.banned?}"), [:edit, :admin, item]
+            %td.date= link_to l(item.created_at, :format => :short_date_time), [:edit, :admin, item]
+            %td.date= link_to item.created_at == item.updated_at ? t(:never) : l(item.created_at, :format => :short_date_time), [:edit, :admin, item]
+            %td.delete= link_to t(:delete), [:admin, item], :method => :delete, :confirm => t(:delete_confirm)
+    
+    = will_paginate @items, :renderer => BootstrapPaginationRenderer
+
+= content_for :toolbar do
+  = link_to t(:add), new_admin_user_path, :class => 'btn btn-large'  
+

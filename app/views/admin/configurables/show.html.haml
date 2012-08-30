@@ -1,0 +1,26 @@
+.row-fluid
+  .span9
+    = form_tag(admin_configurable_path, :method => :put) do 
+      - Configurable.keys.each do |key|
+        - options = Configurable.defaults[key]
+        - if options[:type] == 'boolean'
+          .control-group.form-inline
+            = hidden_field_tag key, "0" 
+            = check_box_tag key, "1", Configurable.send(key)
+            = label_tag key, options[:name]
+        - else
+          .control-group
+            = label_tag key, options[:name]
+            - case options[:type]
+              - when 'password'
+                = password_field_tag key, Configurable.send(key), :class => 'input-large'
+              - when 'text'
+                = text_area_tag key, Configurable.send(key), :rows => 5, :class => 'input-large'
+              - when 'list'
+                = text_area_tag key, Configurable.send(key).collect{ |a| a.join(",")}.join("\n"), :rows => 5, :class => 'input-xxlarge'
+              - else
+                = text_field_tag key, Configurable.send(key), :class => 'input-large'
+
+      = submit_tag t(:save), :class => 'btn btn-large btn-primary'
+
+  .span3

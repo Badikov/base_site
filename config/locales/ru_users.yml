@@ -1,0 +1,43 @@
+ru:
+  activerecord:
+    attributes:
+      user:
+        login: Логин
+        email: Email
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        active: Подтвержден
+        banned: Заблокирован
+        created_at: Зарегистрирован
+        updated_at: Обновлен
+  users:
+    pl: Пользователи
+    sing: Пользователь
+    signup: Регистрация
+    register: Зарегистрироваться
+    signup_complete_title: Поздравляем с успешной регистрацией
+    signup_with_confirm_complete: На указанный Вами email отправлены инструкции по активации аккаунта
+    signup_without_confirm_complete: Теперь Вы можете войти, используя логин и пароль, указанные при регистрации
+    account_activation_email_title: Инструкции по активации аккаунта
+    account_activation_email_body: Ваш аккаунт зарегистрирован. Для его активации перейдите по ссылке, указанной ниже    
+    activation_complete: Ваш аккаунт активирован
+    not_active: Данный аккаунт не активирован
+    banned: Аккаунт заблокирован администрацией портала
+    login: Войти
+    logout: Выйти
+    login_or_email: Логин или email
+    password: Пароль
+    remember_me: Запомнить меня
+    login_failure: Неверный логин или пароль
+    profile: Профиль
+    user_profile: Профиль пользователя %{username}
+    edit: Редактировать профиль
+    forgot_password: Забыли пароль?
+    email_not_found: Пользователь с адресом электронной почты <strong>%{email}</strong> не найден
+    reset_password: Сброс пароля
+    reset_password_hint: Укажите email, указанный Вами при регистрации. На него будут отправлены инструкции по восстановлению пароля.
+    reset_password_sent: Инструкции по восстановлению пароля были отправлены на <strong>%{email}</strong>.
+    reset_password_email_title: Сброс пароля
+    reset_password_email_body: Для сброса пароля перейдите по ссылке ниже. Если Вы не пытались изменить пароль, просто проигнорируйте это сообщение.
+    enter_new_password: Введите новый пароль
+    reset_password_complete: Пароль успешно изменен.

@@ -1,0 +1,40 @@
+.row-fluid
+  .span9
+    = form_for [:admin, @item], :validate => true do |f|
+      = render 'form_id', :item => @item
+      .control-group
+        = f.label :login
+        = f.text_field :login, :class => 'input-medium'
+      .control-group
+        = f.label :email
+        = f.text_field :email, :class => 'input-medium'
+      .control-group
+        = f.label :password
+        = f.password_field :password, :class => 'input-medium'
+      .control-group
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation, :class => 'input-medium'
+        
+      .control-group.form-inline.bottom
+        = f.check_box :active
+        = f.label :active
+      .control-group.form-inline  
+        = f.check_box :banned
+        = f.label :banned
+      .control-group.bottom
+        = label_tag t('privilegies.pl')
+        .control-group.with-intent
+          - unless @item.new_record?
+            = hidden_field_tag "user[role_ids][]", Role.find_by_name('registered').id
+          - Role.ordered.each do |role|
+            - unless role.name == 'registered' || (role.name == 'super_admin' && !has_role?(:super_admin))
+              .control-group.form-inline
+                = check_box_tag "user[role_ids][]", role.id, @item.role_ids.include?(role.id), :id => "role_#{role.id}"
+                = label_tag "role_#{role.id}", t("privilegies.#{role.name}")
+      = render 'form_submit_buttons', :f => f
+        
+  .span3
+  
+  
+= content_for :toolbar do
+  = link_to t(:back), [:admin, :users], :class => 'btn btn-medium'

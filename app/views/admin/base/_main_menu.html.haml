@@ -1,0 +1,22 @@
+.navbar
+  .navbar-inner
+    .container  
+      %button.btn.btn-navbar{:type => 'button', :data => {:toggle => 'collapse', :target => '.nav-collapse' }}
+        - 3.times do
+          %span.icon-bar
+      .nav-collapse.in.collapse{:style => "height:auto"}
+        %ul.nav
+          - if permitted_to? :index, :admin_users
+            %li{:class => ('active' if @main_menu_active == 'users')}
+              = link_to t('users.pl'), [:admin, :users]
+          - if permitted_to? :index, :admin_configurables
+            %li{:class => ('active' if @main_menu_active == 'configs')}
+              = link_to t('configs'), [:admin, :configurable]
+          - if permitted_to? :index, :admin_static_texts
+            %li{:class => ('active' if @main_menu_active == 'static_texts')}
+              = link_to t('static_texts.pl'), [:admin, :static_texts]
+
+      %ul.nav.pull-right
+        %li= link_to t(:go_to_site), root_path
+        - if current_user
+          %li= link_to t('users.logout'), logout_path

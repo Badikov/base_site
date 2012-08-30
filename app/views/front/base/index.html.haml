@@ -1,0 +1,14 @@
+= link_to t('menu.about'), page_path('about')
+||
+- if current_user
+  = link_to t('users.profile'), current_user
+  |
+  = link_to t('users.logout'), logout_path
+- else
+  = link_to t('users.login'), login_path
+  |
+  = link_to t('users.signup'), signup_path
+  |
+  = link_to t('users.forgot_password'), forgot_password_path
+||
+= link_to t('users.pl'), users_path

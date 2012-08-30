@@ -1,0 +1,19 @@
+%head
+  = csrf_meta_tags
+  
+  = meta_description
+  = meta_keywords
+  
+  = stylesheet_link_tag('front/front')
+  = specific_stylesheet_link_tag('front')
+  /[if IE]        
+    = stylesheet_link_tag 'front/ie'
+  /[if IE 7]        
+    = stylesheet_link_tag 'front/ie7'
+  
+  = javascript_include_tag('front/front')
+  = specific_javascript_include_tag('front') 
+  
+  = yield :head
+
+  %title= page_title

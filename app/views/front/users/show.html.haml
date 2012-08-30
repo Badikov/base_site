@@ -1,0 +1,5 @@
+= @user.login
+%br/
+= link_to t(:edit), [:edit, @user]
+%br/
+= link_to t(:delete), @user, :method => :delete, :confirm => t(:delete_confirm)

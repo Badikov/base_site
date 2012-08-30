@@ -1,0 +1,7 @@
+#alerts
+  .back  
+    - flash.each do |key, value| 
+      = render 'alert_item', :value => value, :key => key
+  .fixed  
+    - flash.each do |key, value| 
+      = render 'alert_item', :value => value, :key => key

@@ -1,0 +1,11 @@
+/.bundle
+/log/*
+/tmp/*
+/public/assets
+/public/ckeditor_assets
+/public/attachments
+/config/database.yml
+/config/setup_load_paths.rb
+.rvmrc
+Gemfile.lock
+

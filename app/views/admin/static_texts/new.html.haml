@@ -1,0 +1,46 @@
+.row-fluid
+  .span9
+    = form_for [:admin, @item], :html => {:id => 'static-text-form'}, :validate => true do |f|
+      = render 'form_id', :item => @item
+      
+      - unless @item.new_record?
+        .control-group
+          %strong= "#{StaticText.human_attribute_name('kind')}:"
+          = t("static_texts.kinds.#{@item.alias}")
+
+      .control-group
+        = f.label :title, :class => 'required-label'
+        = f.text_field :title, :class => 'input-large'
+      .control-group
+        = f.label :text
+        = f.cktext_area :text, :rows => 20, :class => 'input-large'
+      - if @item.enable_route
+        .control-group
+          = f.label :meta_keywords
+          = f.text_area :meta_keywords, :rows => 5, :class => 'input-large'
+        .control-group
+          = f.label :meta_description
+          = f.text_area :meta_description, :rows => 5, :class => 'input-large'
+
+      - if current_user.super_admin?
+        .control-group
+          = f.label :path
+          = f.text_field :path, :class => 'input-large'
+        .control-group.form-inline
+          = f.check_box :enable_route
+          = f.label :enable_route
+        .control-group
+          = f.label :template
+          = f.text_field :template, :class => 'input-large'
+
+      .control-group.bottom
+        = hidden_field_tag 'after_save_redirect', 'default', :id => 'after_save_redirect'
+        = f.submit t(:save), :class => 'btn btn-large btn-primary', :id => 'save'
+        - if current_user.super_admin?
+          = f.button t(:save_and_new), :class => 'btn btn-large', :id => 'save-and-new'
+
+  .span3
+  
+  
+= content_for :toolbar do
+  = link_to t(:back), [:admin, :static_texts], :class => 'btn btn-large'

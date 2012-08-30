@@ -1,0 +1,24 @@
+site_name:
+  name: Название сайта
+  type: string
+  default: My site 
+email_from_name:
+  name: Имя отправителя почты
+  type: string
+  default: My site 
+site_enabled:
+  name: Сайт включен
+  type: boolean
+  default: true 
+confirm_registration:
+  name: 'Подтверждать регистрацию'
+  type: boolean
+  default: false
+meta_keywords:
+  name: Meta-keywords
+  type: text
+  default: 
+meta_description:
+  name: Meta-description
+  type: text
+  default:

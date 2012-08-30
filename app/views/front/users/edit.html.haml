@@ -1,0 +1,16 @@
+%h1= @title
+
+= form_for @user, :validate => true do |f|
+  .control-group
+    = f.label :login
+    = f.text_field :login, :class => 'input-medium'
+  .control-group
+    = f.label :email
+    = f.text_field :email, :class => 'input-medium'
+  .control-group
+    = f.label :password
+    = f.password_field :password, :class => 'input-medium'
+  .control-group
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, :class => 'input-medium'
+  = f.submit t(:save), :class => 'btn btn-large btn-primary'

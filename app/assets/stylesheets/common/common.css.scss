@@ -1,0 +1,29 @@
+@import "bootstrap/variables"; 
+@import "bootstrap/mixins";
+
+#alerts{
+  .alert{
+    margin:3px auto;
+  }
+  .fixed{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:99999;
+  }
+  .back{
+    @include opacity(0);
+  }
+}
+
+.clr{
+  display:block;
+  height:0;
+  line-height:0;
+  width:100%;
+  margin:0;
+  padding:0;
+  float:none;
+  clear:both;
+}

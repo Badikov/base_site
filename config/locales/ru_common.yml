@@ -1,0 +1,103 @@
+ru:
+  activerecord:
+    attributes:
+     
+    errors:
+      messages:
+        blank: обязательное поле
+        invalid: неверный формат
+        too_short: не менее %{count} символов
+        too_long: не более %{count} символов
+        taken: значение должно быть уникальным
+        confirmation: подтверждение не совпадает
+        
+  attributes:
+    title: Заголовок
+    text: Текст
+    created_at: Создано
+    updated_at: Обновлено
+    kind: Тип
+    meta_keywords: Meta-keywords
+    meta_description: Meta-description
+  
+  failure:
+    general: Произошла ошибка. Попробуйте еще раз.
+    save: Не удалось сохранить данные. Попробуйте еще раз.
+    send: Не удалось отправить данные. Попробуйте еще раз.
+    invalid_form: Не удалось сохранить данные. Проверьте правильность заполнения формы.
+    invalid_form_with_attachments: Не удалось сохранить данные. Проверьте правильность заполнения формы  и соответствие формата загружаемых файлов.
+    image: Не удалось сохранить изображение. Возможно использован недопустимый формат или размер файла.
+  
+
+  time:
+    formats:
+      short_date_time: "%d.%m.%Y, %H:%M"
+  
+  number:
+    format:
+      separator: "."
+      delimiter: ","
+      precision: 3
+      significant: false
+      strip_insignificant_zeros: false 
+    human:
+     storage_units:
+       format: "%n %u"
+       units:
+         byte:
+           one: "байт"
+           other: "байт"
+         kb: "КБ"
+         mb: "МБ"
+         gb: "ГБ"
+         tb: "ТБ"
+
+  will_paginate:
+    previous_label: "&#8592;"
+    next_label: "&#8594;"  
+    page_gap: "..."
+  
+  permissions:
+    denied: Доступ запрещен
+    require_user: Необходимо авторизоваться
+  
+  privilegies:
+   pl: Привилегии
+   admin: Администратор
+   super_admin: Супер-администратор
+
+  add: Добавить
+  edit: Редактировать
+  create: Создать
+  save: Сохранить
+  saving: Сохранение...
+  saved: Сохранено
+  save_and_new: Сохранить и добавить
+  send: Отправить
+  sending: Отправка...
+  delete: Удалить
+  delete_confirm: Удалить?
+  deleted: Удалено
+  loading: Загрузка...
+  back: Назад
+  tyes: Да
+  tno: Нет
+  ttrue: Да
+  tfalse: Нет
+
+  admin_panel: Панель администратора
+  go_to_site: Перейти на сайт
+  invalid_form_save_failure_message: Не удалось сохранить данные. Проверьте правильность заполнения формы и попробуйте еще раз
+  save_failure_message: Не удалось сохранить данные. Попробуйте еще раз
+  never: Никогда
+  configs: Настройки
+
+  link_livetime_notice: Ссылка будет действительной в течении %{count} суток
+
+  static_texts:
+    pl: Тексты
+    kinds: 
+      about: О нас
+
+  menu:
+    about: О нас

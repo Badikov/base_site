@@ -1,0 +1,138 @@
+// Bootstrap variables overrides and own mixins and variables
+@import "admin/variables";
+
+//
+// Bootstrap
+//
+
+// Core variables and mixins
+@import "bootstrap/variables"; 
+@import "bootstrap/mixins";
+
+// CSS Reset
+@import "bootstrap/reset";
+
+// Grid system and page structure
+@import "bootstrap/scaffolding";
+@import "bootstrap/grid";
+@import "bootstrap/layouts";
+
+// Base CSS
+@import "bootstrap/type";
+//@import "bootstrap/code";
+@import "bootstrap/forms";
+@import "bootstrap/tables";
+
+// Components: common
+//@import "bootstrap/sprites";
+@import "bootstrap/dropdowns";
+@import "bootstrap/wells";
+@import "bootstrap/component-animations";
+@import "bootstrap/close";
+
+// Components: Buttons & Alerts
+@import "bootstrap/buttons";
+//@import "bootstrap/button-groups";
+@import "bootstrap/alerts"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
+
+// Components: Nav
+@import "bootstrap/navs";
+@import "bootstrap/navbar";
+//@import "bootstrap/breadcrumbs";
+@import "bootstrap/pagination";
+//@import "bootstrap/pager";
+
+// Components: Popovers
+//@import "bootstrap/modals";
+//@import "bootstrap/tooltip";
+//@import "bootstrap/popovers";
+
+// Components: Misc
+//@import "bootstrap/thumbnails";
+//@import "bootstrap/labels-badges";
+//@import "bootstrap/progress-bars";
+//@import "bootstrap/accordion";
+//@import "bootstrap/carousel";
+//@import "bootstrap/hero-unit";
+
+// Utility classes
+@import "bootstrap/utilities"; // Has to be last to override when necessary
+
+@import "_bootstrap-responsive";
+
+// Other imports
+
+@import "common/common";
+
+
+// Bootstrap style overrides
+
+.container-fluid{
+  min-width:950px;
+  max-width:1250px;
+  padding-left:15px;
+  padding-right:15px;
+  margin:0 auto;
+}
+.navbar-inner .container{
+  max-width:1250px;
+}
+.page-header{
+  margin-top:0;
+  h1{
+    float:left;
+    font-weight:normal;
+  }
+  .toolbar{
+    float:right;
+  }
+}
+.input-xxsmall    { width: 50px; }
+.input-xsmall     { width: 100px; }
+.input-small      { width: 200px; }
+.input-medium     { width: 300px; }
+.input-large      { width: 400px; }
+.input-xlarge     { width: 500px; }
+.input-xxlarge    { width: 550px; }
+
+.control-group.with-intent{
+  padding-left:20px;
+  .input-xsmall     { width: 80px; }
+  .input-small      { width: 180px; }
+  .input-medium     { width: 280px; }
+  .input-large      { width: 380px; }
+  .input-xlarge     { width: 480px; }
+  .input-xxlarge    { width: 530px; }
+}
+
+// Own common styles
+
+#alerts{
+  .alert{
+    max-width:1225px;
+  }
+}
+
+.table{
+  thead a.current{
+    padding-right:15px;
+    &.asc{
+      background:image_url('admin/sort-asc.png') no-repeat 100% 50%;
+    }
+    &.desc{
+      background:image_url('admin/sort-desc.png') no-repeat 100% 50%;
+    }
+  }
+  
+  td.id{
+    width:60px;
+  }
+  td.delete{
+    width:50px;
+    text-align:right;
+    text-transform:lowercase;
+  }
+  td.date{
+    width:120px;
+  }
+}

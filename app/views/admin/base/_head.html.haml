@@ -1,0 +1,16 @@
+%head
+  = csrf_meta_tags
+  
+  = stylesheet_link_tag('admin/admin')
+  = specific_stylesheet_link_tag('admin')
+  /[if IE]        
+    = stylesheet_link_tag 'admin/ie'
+  /[if IE 7]        
+    = stylesheet_link_tag 'admin/ie7'
+  
+  = javascript_include_tag('admin/admin')
+  = specific_javascript_include_tag('admin') 
+  
+  = yield :head
+
+  %title= page_title

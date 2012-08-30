@@ -1,0 +1,14 @@
+.row
+  .span4
+    = form_tag sessions_path, :class => 'well' do |f| 
+      .control-group
+        = label_tag :login_or_email, t('users.login_or_email')
+        = text_field_tag :login_or_email, '', :class => 'input-medium'
+      .control-group
+        = label_tag :password, User.human_attribute_name('password')
+        = password_field_tag :password, '', :class => 'input-medium'
+      .control-group.form-inline
+        = check_box_tag :remember_me
+        = label_tag :remember_me, t('users.remember_me')
+        = hidden_field_tag :redirect_type, 'backend'
+      = submit_tag t('users.login'), :class => 'btn btn-large btn-primary'

@@ -1,0 +1,29 @@
+.row-fluid
+  .span12
+    .list
+      %table.table.table-striped
+        %thead
+          %tr
+            %th.id= sortable('id', 'ID')
+            %th= sortable('title', StaticText.human_attribute_name('title'))
+            %th= StaticText.human_attribute_name('kind')
+            %th.date= sortable('updated_at', StaticText.human_attribute_name('updated_at')) 
+            - if current_user.super_admin?
+              %td
+
+        %tbody
+          - @items.each do |item|
+            %tr
+              %td= link_to item.id, [:edit, :admin, item]
+              %td= link_to truncate(item.title, :length => 70), [:edit, :admin, item]
+              %td= link_to t("static_texts.kinds.#{item.alias}"), [:edit, :admin, item]
+              %td= link_to l(item.updated_at, :format => :short_date_time), [:edit, :admin, item]
+              - if current_user.super_admin?
+                %td.delete= link_to t(:delete), [:admin, item], :method => :delete, :confirm => t(:delete_confirm)
+
+      
+      = will_paginate @items, :renderer => BootstrapPaginationRenderer
+
+= content_for :toolbar do
+  - if current_user.super_admin?
+    = link_to t(:add), new_admin_static_text_path, :class => 'btn btn-large'  
