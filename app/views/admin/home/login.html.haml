@@ -1,6 +1,6 @@
 .row
   .span4
-    = form_tag sessions_path, :class => 'well' do |f| 
+    = form_tag sessions_path(:locale => I18n.default_locale), :class => 'well' do |f| 
       .control-group
         = label_tag :login_or_email, t('users.login_or_email')
         = text_field_tag :login_or_email, '', :class => 'input-medium'

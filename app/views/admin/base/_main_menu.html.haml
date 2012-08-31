@@ -17,6 +17,6 @@
               = link_to t('static_texts.pl'), [:admin, :static_texts]
 
       %ul.nav.pull-right
-        %li= link_to t(:go_to_site), root_path
+        %li= link_to t(:go_to_site), root_path(:locale => I18n.default_locale)
         - if current_user
-          %li= link_to t('users.logout'), logout_path
+          %li= link_to t('users.logout'), logout_path(:locale => I18n.default_locale)

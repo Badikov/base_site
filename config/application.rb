@@ -41,6 +41,8 @@ module BaseSite
 
     config.i18n.available_locales = [:ru, :en]
     
+    config.i18n.fallbacks = true
+    
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 

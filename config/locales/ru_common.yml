@@ -84,6 +84,7 @@ ru:
   tno: Нет
   ttrue: Да
   tfalse: Нет
+  untranslatable_elements: Глобальные атрибуты (непереводимые)
 
   admin_panel: Панель администратора
   go_to_site: Перейти на сайт

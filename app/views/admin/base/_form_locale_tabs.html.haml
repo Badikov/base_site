@@ -1,0 +1,5 @@
+%ul.nav.nav-tabs#form-locale-tabs
+  %li= link_to I18n.default_locale.upcase, "\##{I18n.default_locale}"
+  - I18n.available_locales.each do |l|
+    - unless l == I18n.default_locale
+      %li= link_to l.upcase, "\##{l}", :data => {:toggle => 'tab'}

@@ -8,6 +8,9 @@ class StaticText < ActiveRecord::Base
                     :format => {:with => /\A[a-z\d]+[a-z\d\-_\/]*[a-z\d]+\z/i},
                     :uniqueness => {:case_sensitive => false}
 
+  translates :title, :text, :meta_description, :meta_keywords, :fallbacks_for_empty_translations => true
+  accepts_nested_attributes_for :translations
+  
   scope :route_enabled, where(:enable_route => true)
 
   before_save :squeeze_slashes_in_path

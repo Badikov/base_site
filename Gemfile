@@ -12,6 +12,8 @@ gem 'configurable_engine'
 gem 'paperclip'
 gem 'ckeditor', '3.7.1'
 gem 'draper'
+gem 'globalize3'
+gem 'batch_translations'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

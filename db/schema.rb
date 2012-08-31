@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120830215359) do
+ActiveRecord::Schema.define(:version => 20120831160150) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -49,6 +49,20 @@ ActiveRecord::Schema.define(:version => 20120830215359) do
     t.integer "role_id"
     t.integer "user_id"
   end
+
+  create_table "static_text_translations", :force => true do |t|
+    t.integer  "static_text_id"
+    t.string   "locale"
+    t.string   "title"
+    t.text     "text"
+    t.text     "meta_description"
+    t.text     "meta_keywords"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "static_text_translations", ["locale"], :name => "index_static_text_translations_on_locale"
+  add_index "static_text_translations", ["static_text_id"], :name => "index_static_text_translations_on_static_text_id"
 
   create_table "static_texts", :force => true do |t|
     t.string   "title"

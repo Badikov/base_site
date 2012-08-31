@@ -3,7 +3,7 @@ class Admin::BaseController < ApplicationController
   filter_access_to :all
 
   DEFAULT_PER_PAGE = 20
-  before_filter :set_model
+  before_filter :set_model, :set_locale
   before_filter :set_view_variables, :only => [:index, :show, :new, :create, :edit, :update]
 
   layout 'admin/layouts/application'
@@ -12,6 +12,7 @@ class Admin::BaseController < ApplicationController
   
   def index
     @items = @model.order(sort_column + " " + sort_direction).paginate(:per_page => per_page, :page => params[:page]) 
+    @items = @items.includes(:translations) if @model.reflect_on_association(:translations)
      @title = t(controller_name + '.pl')
   end
   
@@ -117,12 +118,16 @@ class Admin::BaseController < ApplicationController
     end
   end  
 
+  def set_locale
+    I18n.locale = I18n.default_locale
+  end
+
   def permission_denied
     flash[:error] = current_user ? t('permissions.denied') : t('permissions.require_user')
     if current_user && permitted_to?(:admin, :index)
       url = admin_root_url
     elsif current_user
-      url = root_url
+      url = root_url(:locale => I18n.default_locale)
     else
       url = admin_login_url
     end
