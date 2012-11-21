@@ -35,15 +35,4 @@ BaseSite::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  config.action_mailer.default_url_options = { :host => "localhost:3000" }
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.gmail.com',
-    :domain         => 'gmail.com',
-    :port           => 587,
-    :user_name      => 'bob.ispanov@gmail.com',
-    :password       => '78910180',
-    :authentication => :plain,
-    :enable_starttls_auto => true
-  }
 end
