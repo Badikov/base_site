@@ -1,1 +1,1 @@
-Simplest site template
+Simplest multilanguage site template
