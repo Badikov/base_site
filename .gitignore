@@ -6,6 +6,7 @@
 /public/attachments
 /config/database.yml
 /config/setup_load_paths.rb
+/config/settings.yml
 .rvmrc
 Gemfile.lock
 

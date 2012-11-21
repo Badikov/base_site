@@ -1,0 +1,20 @@
+common: &common_settings
+  smtp_address: 'smtp.gmail.com'
+  smtp_domain: 'gmail.com'
+  smtp_port: 587  
+  smtp_user_name: 'example@gmail.com'
+  smtp_password: 'my_password'
+  smtp_authentication: plain
+  smtp_enable_starttls_auto: true
+
+production:
+  <<: *common_settings
+  mailer_host: 'production.host'
+
+development:
+  <<: *common_settings
+  mailer_host: 'localhost:3000'
+
+test:
+  <<: *common_settings
+  mailer_host: 'test.host'
